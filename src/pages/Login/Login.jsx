@@ -8,21 +8,6 @@ const Login = () => {
         <form className="space-y-6">
           <div className="space-y-1 text-sm">
             <label
-              htmlFor="name"
-              className="block dark:text-gray-600 text-base text-color-sd font-medium"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
-            />
-          </div>
-          <div className="space-y-1 text-sm">
-            <label
               htmlFor="email"
               className="block dark:text-gray-600 text-base text-color-sd font-medium"
             >
@@ -36,21 +21,7 @@ const Login = () => {
               className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
             />
           </div>
-          <div className="space-y-1 text-sm">
-            <label
-              htmlFor="photoURL"
-              className="block dark:text-gray-600 text-base text-color-sd font-medium"
-            >
-              Photo URL
-            </label>
-            <input
-              type="text"
-              name="photoURL"
-              id="photoURL"
-              placeholder="photo URL"
-              className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
-            />
-          </div>
+
           <div className="space-y-1 text-sm">
             <label
               htmlFor="password"
