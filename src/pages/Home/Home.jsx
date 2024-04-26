@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import Hero from "../../components/Hero/Hero";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import SpotCard from "../../components/SportCard/SpotCard";
 const Home = () => {
   let heroInfo = [
     {
@@ -61,8 +62,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* UUUUUU */}
-      <section className="container mx-auto my-16 md:my-24 ">
+      {/* Tourists Spots Section */}
+      <section className="container mx-auto my-16 md:my-24 px-2 md:px-0 ">
         <div>
           <SectionTitle
             title={"Tourists Spots"}
@@ -70,6 +71,14 @@ const Home = () => {
               "is rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus. Suspendissendt blandit interdum. Sed pellentesque at nunc eget consectetur."
             }
           />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <SpotCard />
+          <SpotCard />
+          <SpotCard />
+          <SpotCard />
+          <SpotCard />
+          <SpotCard />
         </div>
       </section>
     </div>
