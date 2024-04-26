@@ -44,7 +44,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/add-tourists-spot"
+                  to="/add-tourist-spot"
                   className="font-medium capitalize text-color-secondary text-base"
                 >
                   Add Tourists Spot
@@ -87,7 +87,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/add-tourists-spot"
+                to="/add-tourist-spot"
                 className="font-medium capitalize text-color-secondary text-base"
               >
                 Add Tourists Spot
