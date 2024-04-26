@@ -2,7 +2,7 @@ import { Link, useRouteError } from "react-router-dom";
 
 const NotFoundPage = () => {
   const error = useRouteError();
-  console.log(error);
+
   return (
     <div className="flex w-full h-screen justify-center items-center flex-col gap-3">
       <h2 className="text-3xl text-color-secondary md:text-5xl">Sorry</h2>

@@ -5,6 +5,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import SpotDetails from "../pages/SpotDetails/SpotDetails";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/spot-details/:id",
         element: <SpotDetails />,
+      },
+      {
+        path: "/all-tourists-spots",
+        element: <AllTouristsSpot />,
       },
     ],
   },

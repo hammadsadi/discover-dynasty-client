@@ -24,7 +24,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50"
             >
               <li>
                 <NavLink
@@ -36,7 +36,7 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/all-tourists-spot"
+                  to="/all-tourists-spots"
                   className="font-medium capitalize text-color-secondary text-base"
                 >
                   All Tourists Spot
@@ -79,7 +79,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/all-tourists-spot"
+                to="/all-tourists-spots"
                 className="font-medium capitalize text-color-secondary text-base"
               >
                 All Tourists Spot
