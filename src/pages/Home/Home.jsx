@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/pagination";
 import Hero from "../../components/Hero/Hero";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 const Home = () => {
   let heroInfo = [
     {
@@ -61,7 +62,16 @@ const Home = () => {
       </section>
 
       {/* UUUUUU */}
-      <section>h2lorem4</section>
+      <section className="container mx-auto my-16 md:my-24 ">
+        <div>
+          <SectionTitle
+            title={"Tourists Spots"}
+            subTitle={
+              "is rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus. Suspendissendt blandit interdum. Sed pellentesque at nunc eget consectetur."
+            }
+          />
+        </div>
+      </section>
     </div>
   );
 };

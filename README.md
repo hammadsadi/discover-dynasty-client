@@ -1,8 +1,14 @@
-# React + Vite
+# Discover Dynasty
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [ Live Site URL](https://discoverdynasty)
 
-Currently, two official plugins are available:
+Click here for the Live Site: [https://discoverdynasty](https://discoverdynasty)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Website Features
+
+- Register User Using Email and Password
+- Login User Using Email and Password
+- Direct Sign In User Through Google or Github Account
+- Password Validation
+- Protected Route
+- User Logout

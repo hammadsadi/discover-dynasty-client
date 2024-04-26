@@ -60,7 +60,12 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Discover Dynasty</a>
+          <Link
+            to="/"
+            className="btn btn-ghost text-xl md:text-2xl font-black text-color-secondary flex gap-0"
+          >
+            Discover<span className="text-color-primary">D</span>ynasty
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -99,7 +104,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {/* <div className="space-x-2">
+          <div className="space-x-2">
             <Link
               to="/login"
               className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
@@ -112,8 +117,8 @@ const Navbar = () => {
             >
               Register
             </Link>
-          </div> */}
-          <div className="space-x-2 flex z-40">
+          </div>
+          {/* <div className="space-x-2 flex z-40">
             <Link
               to="/login"
               className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
@@ -143,7 +148,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
