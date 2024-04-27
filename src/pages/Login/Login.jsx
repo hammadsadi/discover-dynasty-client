@@ -1,11 +1,29 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { userLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleUserLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    userLogin(email, password)
+      .then((res) => {
+        toast.success("Login Successful");
+        navigate("/");
+      })
+      .catch(() => {
+        toast.error("Invalid Email and Password");
+      });
+  };
   return (
     <div className="flex justify-center items-center w-full h-screen">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 border">
         <h1 className="text-2xl font-bold text-center">Create Account</h1>
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleUserLogin}>
           <div className="space-y-1 text-sm">
             <label
               htmlFor="email"
