@@ -1,5 +1,5 @@
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -7,7 +7,11 @@ import "swiper/css/pagination";
 import Hero from "../../components/Hero/Hero";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import SpotCard from "../../components/SportCard/SpotCard";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 const Home = () => {
+  const { sadi } = useContext(AuthContext);
+
   let heroInfo = [
     {
       id: 1,
@@ -46,11 +50,15 @@ const Home = () => {
       <section>
         <div>
           <Swiper
+            autoplay={{
+              delay: 1000,
+              disableOnInteraction: false,
+            }}
             loop={true}
             pagination={{
               dynamicBullets: true,
             }}
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             className="mySwiper"
           >
             {heroInfo.map((hData) => (

@@ -1,11 +1,53 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+  const { registerUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleSubmitCreateAccountForm = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photoURL = form.photoURL.value;
+    const password = form.password.value;
+    let user = { name, email, password, photoURL };
+    // Al Field Validation
+    if (!name || !email || !password || !photoURL) {
+      return toast.error("All Fields Are Required");
+    }
+    // Password Validate
+    if (password.length < 6) {
+      return toast.error("Password Length must be at least 6 character");
+    }
+    // Password Uppercase Check
+    if (!/[A-Z]/.test(password)) {
+      return toast.error("Must have a Uppercase letter in the password");
+    }
+    // Password Lowercase Check
+    if (!/[a-z]/.test(password)) {
+      return toast.error("Must have a Lowercase letter in the password");
+    }
+
+    // Create User
+    registerUser(email, password)
+      .then((res) => {
+        toast.success("User Create Successfully");
+        console.log(res.user);
+        e.target.reset();
+        navigate("/login");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
   return (
     <div className="flex justify-center items-center w-full h-screen">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 border">
         <h1 className="text-2xl font-bold text-center">Create Account</h1>
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleSubmitCreateAccountForm}>
           <div className="space-y-1 text-sm">
             <label
               htmlFor="name"
