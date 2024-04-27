@@ -4,36 +4,46 @@ import { FaGlobe, FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
 import { LuUsers2 } from "react-icons/lu";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { apiBaseUrl } from "../../utils/baseUrl";
 const SpotDetails = () => {
+  const { id } = useParams();
+  const [spot, setSpot] = useState({});
+  console.log(spot);
+
+  // Get Single Spot
+  useEffect(() => {
+    fetch(`${apiBaseUrl}/spot/${id}`)
+      .then((res) => res.json())
+      .then((data) => setSpot(data));
+  }, [id]);
+
   return (
     <div className="container mx-auto px-2 md:px-0">
       <div className="card card-compact">
         <div className="relative">
           <figure>
-            <img
-              src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-              alt="Shoes"
-              className="rounded-t-2xl w-full"
-            />
+            <img src={spot?.photoURL} alt="Shoes" className=" w-full" />
           </figure>
           <span className="absolute top-2 right-4 bg-color-primary px-3 py-1 inline-block rounded-md text-sm text-white">
-            Winter
+            {spot?.seasonality}
           </span>
         </div>
         <div className="p-2 md:p-6 bg-white ">
           <div className="flex md:flex-row flex-col gap-5 md:justify-between md:items-center border-b pb-4">
             <div className="md:space-y-2">
               <h2 className="text-xl md:text-4xl font-semibold text-color-sd">
-                Lorem ipsum dolor sit amet, consectetur adipisicing
+                {spot?.touristsSpotName}
               </h2>
               <p className="flex gap-2 items-center">
                 <FaLocationDot className="text-color-primary text-base" />{" "}
-                <span className="text-base">Main street, Brooklyn, NY</span>
+                <span className="text-base">{spot?.location}</span>
               </p>
             </div>
             <div className="md:space-y-2">
               <p className="flex gap-2 items-center text-xl md:text-4xl font-semibold">
-                <span className="text-color-primary">$400</span>
+                <span className="text-color-primary">${spot?.averageCost}</span>
               </p>
               <p className="md:text-xl text-sm text-color-secondary font-semibold">
                 Per Person
@@ -43,32 +53,22 @@ const SpotDetails = () => {
           <div className="pt-4 grid grid-cols-1 md:grid-cols-5 gap-4">
             <div className="md:col-span-3">
               <p className="text-base text-color-opacity">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                vero fuga sint minima eligendi, iste officia. Dolore, aperiam
-                sint. Dicta corporis, suscipit incidunt dolore nisi amet earum
-                deleniti labore ipsum recusandae totam excepturi minus animi
-                cumque, dolorem ad sunt! Tenetur voluptatibus praesentium
-                doloremque quasi nihil, ut provident dolores quidem? Sequi illum
-                aut natus minima blanditiis hic similique, odio, ipsam assumenda
-                repellendus suscipit illo ipsa? Neque repudiandae ipsum
-                accusantium quidem nulla at odio veniam consectetur explicabo
-                aspernatur rem modi nobis, cum praesentium aliquid recusandae
-                amet harum accusamus ullam soluta, exercitationem natus!
-                Architecto laudantium deleniti necessitatibus a omnis iure
-                voluptas, non natus!
+                {spot?.shortDescription}
               </p>
               <div className="flex gap-4 flex-wrap mt-3">
                 <p className="flex gap-2 items-center">
                   <MdOutlineWatchLater className="text-color-primary text-base" />{" "}
-                  <span className="text-base">5 Days</span>
+                  <span className="text-base">5 {spot?.travelTime}</span>
                 </p>
                 <p className="flex gap-2 items-center">
                   <LuUsers2 className="text-color-primary text-base" />{" "}
-                  <span className="text-base">12</span>
+                  <span className="text-base">
+                    {spot?.totalVisitorsPerYear}
+                  </span>
                 </p>
                 <p className="flex gap-2 items-center">
                   <FaGlobe className="text-color-primary text-base" />{" "}
-                  <span className="text-base">Bangladesh</span>
+                  <span className="text-base">{spot?.countryName}</span>
                 </p>
               </div>
               <div className="mt-5 border-t pt-4">

@@ -8,6 +8,8 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
 import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
 import PrivateRoute from "./PrivateRoute";
+import { apiBaseUrl } from "../utils/baseUrl";
+import MyList from "../pages/MyList/MyList";
 
 const router = createBrowserRouter([
   {
@@ -18,14 +20,28 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch(`${apiBaseUrl}/spot`),
       },
       {
         path: "/spot-details/:id",
-        element: <SpotDetails />,
+        element: (
+          <PrivateRoute>
+            <SpotDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/all-tourists-spots",
         element: <AllTouristsSpot />,
+        loader: () => fetch(`${apiBaseUrl}/spot`),
+      },
+      {
+        path: "/my-list",
+        element: (
+          <PrivateRoute>
+            <MyList />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-tourist-spot",

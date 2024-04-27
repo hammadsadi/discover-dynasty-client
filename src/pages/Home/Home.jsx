@@ -7,11 +7,9 @@ import "swiper/css/pagination";
 import Hero from "../../components/Hero/Hero";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import SpotCard from "../../components/SportCard/SpotCard";
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
+import { useLoaderData } from "react-router-dom";
 const Home = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const spots = useLoaderData();
 
   let heroInfo = [
     {
@@ -82,12 +80,9 @@ const Home = () => {
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
+          {spots.map((data) => (
+            <SpotCard key={data._id} spot={data} />
+          ))}
         </div>
       </section>
     </div>

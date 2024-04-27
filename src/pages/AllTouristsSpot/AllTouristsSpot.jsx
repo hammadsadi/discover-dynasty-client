@@ -1,7 +1,9 @@
+import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import SpotCard from "../../components/SportCard/SpotCard";
 
 const AllTouristsSpot = () => {
+  const spots = useLoaderData();
   return (
     <div>
       {/* All Tourists Spots */}
@@ -13,12 +15,9 @@ const AllTouristsSpot = () => {
           }
         />
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
-          <SpotCard />
+          {spots.map((data) => (
+            <SpotCard key={data._id} spot={data} />
+          ))}
         </div>
       </section>
     </div>

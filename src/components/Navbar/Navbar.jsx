@@ -167,7 +167,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/sign-up"
-                className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
+                className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary"
               >
                 Register
               </Link>
