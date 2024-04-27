@@ -1,4 +1,53 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { apiBaseUrl } from "../../utils/baseUrl";
+import toast from "react-hot-toast";
+
 const AddTouristsSpot = () => {
+  const { user } = useContext(AuthContext);
+  const handleCreateTouristsSpot = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const touristsSpotName = form.touristsSpotName.value;
+    const photoURL = form.photoURL.value;
+    const countryName = form.countryName.value;
+    const location = form.location.value;
+    const averageCost = form.averageCost.value;
+    const seasonality = form.seasonality.value;
+    const travelTime = form.travelTime.value;
+    const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
+    const shortDescription = form.shortDescription.value;
+    const userEmail = user.email || "Not Set";
+    const userName = user.displayName;
+    const spotInfo = {
+      touristsSpotName,
+      photoURL,
+      countryName,
+      location,
+      averageCost,
+      seasonality,
+      travelTime,
+      totalVisitorsPerYear,
+      shortDescription,
+      userEmail,
+      userName,
+    };
+    // Send Data to Client
+    fetch(`${apiBaseUrl}/spot`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(spotInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Spot Created Successful");
+        }
+        e.target.reset();
+      });
+  };
   return (
     <div>
       <div className="flex justify-center items-center w-full my-4">
@@ -6,7 +55,7 @@ const AddTouristsSpot = () => {
           <h1 className="text-2xl font-bold text-center">
             Create Tourists Spot
           </h1>
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleCreateTouristsSpot}>
             {/* Tourist Spot Name */}
             <div className="space-y-1 text-sm">
               <label
@@ -49,7 +98,7 @@ const AddTouristsSpot = () => {
                 Country Name
               </label>
               <input
-                type="email"
+                type="text"
                 name="countryName"
                 id="countryName"
                 placeholder="Country Name"
@@ -73,22 +122,6 @@ const AddTouristsSpot = () => {
               />
             </div>
 
-            {/* Average Cost */}
-            <div className="space-y-1 text-sm">
-              <label
-                htmlFor="averageCost"
-                className="block dark:text-gray-600 text-base text-color-sd font-medium"
-              >
-                Average Cost
-              </label>
-              <input
-                type="number"
-                name="averageCost"
-                id="averageCost"
-                placeholder="Average Cost"
-                className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
-              />
-            </div>
             {/* Average Cost */}
             <div className="space-y-1 text-sm">
               <label
