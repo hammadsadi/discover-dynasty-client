@@ -1,13 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   // Create Account Email and Password
   const registerUser = (email, password) => {
@@ -18,6 +19,17 @@ const AuthProvider = ({ children }) => {
   const userLogin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
+
+  // Get Currently Sign In User
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        setUser(null);
+      }
+    });
+  }, []);
 
   const authStoreInfo = { user, registerUser, userLogin };
   return (

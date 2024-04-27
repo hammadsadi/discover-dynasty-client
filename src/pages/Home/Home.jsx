@@ -10,7 +10,8 @@ import SpotCard from "../../components/SportCard/SpotCard";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 const Home = () => {
-  const { sadi } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  console.log(user);
 
   let heroInfo = [
     {
