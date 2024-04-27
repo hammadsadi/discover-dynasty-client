@@ -36,13 +36,16 @@ const AuthProvider = ({ children }) => {
 
   // Get Currently Sign In User
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
+    let unsubscrie = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
       } else {
         setUser(null);
       }
     });
+    return () => {
+      unsubscrie();
+    };
   }, []);
 
   const authStoreInfo = {

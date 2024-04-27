@@ -57,22 +57,26 @@ const Navbar = () => {
                   All Tourists Spot
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/add-tourist-spot"
-                  className="font-medium capitalize text-color-secondary text-base"
-                >
-                  Add Tourists Spot
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/my-list"
-                  className="font-medium capitalize text-color-secondary text-base"
-                >
-                  My List
-                </NavLink>
-              </li>
+              {user && (
+                <>
+                  <li>
+                    <NavLink
+                      to="/add-tourist-spot"
+                      className="font-medium capitalize text-color-secondary text-base"
+                    >
+                      Add Tourists Spot
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/my-list"
+                      className="font-medium capitalize text-color-secondary text-base"
+                    >
+                      My List
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           <Link
@@ -100,22 +104,27 @@ const Navbar = () => {
                 All Tourists Spot
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/add-tourist-spot"
-                className="font-medium capitalize text-color-secondary text-base"
-              >
-                Add Tourists Spot
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/my-list"
-                className="font-medium capitalize text-color-secondary text-base"
-              >
-                My List
-              </NavLink>
-            </li>
+            {user && (
+              <>
+                {" "}
+                <li>
+                  <NavLink
+                    to="/add-tourist-spot"
+                    className="font-medium capitalize text-color-secondary text-base"
+                  >
+                    Add Tourists Spot
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/my-list"
+                    className="font-medium capitalize text-color-secondary text-base"
+                  >
+                    My List
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div className="navbar-end">

@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
   const { userLogin, userLoginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("From Login", location);
   const handleUserLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -13,7 +15,7 @@ const Login = () => {
     userLogin(email, password)
       .then(() => {
         toast.success("Login Successful");
-        navigate("/");
+        location.state ? navigate(location.state) : navigate("/");
       })
       .catch(() => {
         toast.error("Invalid Email and Password");
@@ -25,7 +27,7 @@ const Login = () => {
     userLoginWithGoogle()
       .then(() => {
         toast.success("Login Successful");
-        navigate("/");
+        location.state ? navigate(location.state) : navigate("/");
       })
       .catch((err) => {
         console.log(err.message);

@@ -7,6 +7,7 @@ import SpotDetails from "../pages/SpotDetails/SpotDetails";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import AllTouristsSpot from "../pages/AllTouristsSpot/AllTouristsSpot";
 import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-tourist-spot",
-        element: <AddTouristsSpot />,
+        element: (
+          <PrivateRoute>
+            <AddTouristsSpot />
+          </PrivateRoute>
+        ),
       },
     ],
   },
