@@ -1,10 +1,21 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, userLogout } = useContext(AuthContext);
   console.log(user);
+  // handleUserLogOut
+  const handleUserLogOut = () => {
+    userLogout()
+      .then(() => {
+        toast.success("User Logout Successful");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
   return (
     <div>
       <div className="navbar bg-base-100 container mx-auto z-30">
@@ -108,25 +119,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          {/* <div className="space-x-2">
-            <Link
-              to="/login"
-              className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
-            >
-              Login
-            </Link>
-            <Link
-              to="/sign-up"
-              className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
-            >
-              Register
-            </Link>
-          </div> */}
           {user ? (
             <div className="space-x-2 flex z-40">
               <Link
-                to="/login"
                 className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
+                onClick={handleUserLogOut}
               >
                 Logout
               </Link>
@@ -170,37 +167,6 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-          {/* <div className="space-x-2 flex z-40">
-            <Link
-              to="/login"
-              className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
-            >
-              Logout
-            </Link>
-
-            <div className="dropdown dropdown-end relative group">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full ">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  />
-                </div>
-              </div>
-              <ul
-                tabIndex={0}
-                className="mt-3 z-[1] p-2 shadow menu menu-sm absolute right-0 bg-base-100 rounded-box w-52 invisible group-hover:visible text-center"
-              >
-                <li>
-                  <h2 className="text-center">Hammad sadi</h2>
-                </li>
-              </ul>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>
