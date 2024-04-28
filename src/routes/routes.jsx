@@ -10,6 +10,7 @@ import AddTouristsSpot from "../pages/AddTouristsSpot/AddTouristsSpot";
 import PrivateRoute from "./PrivateRoute";
 import { apiBaseUrl } from "../utils/baseUrl";
 import MyList from "../pages/MyList/MyList";
+import UpdateSpot from "../pages/UpdateSpot/UpdateSpot";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <SpotDetails />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update-my-spot/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateSpot />
           </PrivateRoute>
         ),
       },

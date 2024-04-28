@@ -4,6 +4,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { apiBaseUrl } from "../../utils/baseUrl";
+import { Link } from "react-router-dom";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -50,7 +51,9 @@ const MyList = () => {
                     <td>${mList?.averageCost}</td>
                     <td>{mList?.travelTime} Day</td>
                     <td className="flex gap-1">
-                      <FaPenSquare className="text-xl cursor-pointer text-black" />
+                      <Link to={`/update-my-spot/${mList._id}`}>
+                        <FaPenSquare className="text-xl cursor-pointer text-black" />
+                      </Link>
                       <FaTrash className="text-xl cursor-pointer text-red-700" />
                     </td>
                   </tr>

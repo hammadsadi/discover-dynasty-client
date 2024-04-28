@@ -12,25 +12,30 @@ import auth from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
   // Create Account Email and Password
   const registerUser = (email, password) => {
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // Login USer
   const userLogin = (email, password) => {
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // SignInWithGoogle
   const userLoginWithGoogle = () => {
+    setIsLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // Logout User
   const userLogout = () => {
+    setIsLoading(true);
     return signOut(auth);
   };
 
@@ -39,8 +44,10 @@ const AuthProvider = ({ children }) => {
     let unsubscrie = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        setIsLoading(false);
       } else {
         setUser(null);
+        setIsLoading(false);
       }
     });
     return () => {
@@ -54,6 +61,7 @@ const AuthProvider = ({ children }) => {
     userLogin,
     userLogout,
     userLoginWithGoogle,
+    isLoading,
   };
   return (
     <div>
