@@ -19,6 +19,19 @@ const AddTouristsSpot = () => {
     const shortDescription = form.shortDescription.value;
     const userEmail = user.email || "Not Set";
     const userName = user.displayName;
+    if (
+      !touristsSpotName ||
+      !photoURL ||
+      !countryName ||
+      !location ||
+      !averageCost ||
+      !seasonality ||
+      !travelTime ||
+      !totalVisitorsPerYear ||
+      !shortDescription
+    ) {
+      return toast.error("All Fields Area Required!");
+    }
     const spotInfo = {
       touristsSpotName,
       photoURL,
@@ -90,6 +103,7 @@ const AddTouristsSpot = () => {
             </div>
 
             {/* Country Name */}
+            {/* Country Name */}
             <div className="space-y-1 text-sm">
               <label
                 htmlFor="countryName"
@@ -97,13 +111,20 @@ const AddTouristsSpot = () => {
               >
                 Country Name
               </label>
-              <input
-                type="text"
+              <select
+                className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
                 name="countryName"
-                id="countryName"
-                placeholder="Country Name"
-                className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
-              />
+              >
+                <option disabled selected>
+                  Chose Country
+                </option>
+                <option value="bangladesh">Bangladesh</option>
+                <option value="thailand">Thailand</option>
+                <option value="indonesia">Indonesia</option>
+                <option value="malaysia">Malaysia</option>
+                <option value="vietnam">Vietnam</option>
+                <option value="cambodia">Cambodia</option>
+              </select>
             </div>
             {/* Location */}
             <div className="space-y-1 text-sm">
