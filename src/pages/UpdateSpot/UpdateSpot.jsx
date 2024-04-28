@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiBaseUrl } from "../../utils/baseUrl";
+import toast from "react-hot-toast";
 
 const UpdateSpot = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const UpdateSpot = () => {
       .then((data) => setSpot(data));
   }, [id]);
 
-  const handleCreateTouristsSpot = (e) => {
+  const handleUpdateTouristsSpot = (e) => {
     e.preventDefault();
     const form = e.target;
     const touristsSpotName = form.touristsSpotName.value;
@@ -38,15 +39,29 @@ const UpdateSpot = () => {
       totalVisitorsPerYear,
       shortDescription,
     };
+    // Send Data to the server
+    fetch(`${apiBaseUrl}/update-my-spot-list/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(spotInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Spot Updated Successful");
+        }
+      });
   };
   return (
     <div>
       <div className="flex justify-center items-center w-full my-4">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 border">
           <h1 className="text-2xl font-bold text-center">
-            Create Tourists Spot
+            Update Tourists Spot
           </h1>
-          <form className="space-y-6" onSubmit={handleCreateTouristsSpot}>
+          <form className="space-y-6" onSubmit={handleUpdateTouristsSpot}>
             {/* Tourist Spot Name */}
             <div className="space-y-1 text-sm">
               <label
@@ -93,7 +108,7 @@ const UpdateSpot = () => {
               <select
                 className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
                 name="countryName"
-                value={spot?.countryName}
+                defaultValue={spot?.countryName}
               >
                 <option disabled selected>
                   Chose Country
@@ -153,7 +168,7 @@ const UpdateSpot = () => {
               <select
                 className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
                 name="seasonality"
-                value={spot?.seasonality}
+                defaultValue={spot?.seasonality}
               >
                 <option disabled selected>
                   Seasonality
