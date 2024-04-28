@@ -5,11 +5,44 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { apiBaseUrl } from "../../utils/baseUrl";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
   const [myList, setMyList] = useState([]);
-  console.log(myList);
+
+  // Handle Delete Spot
+  const handleDeleteSpot = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do You Want to Delete This Spot!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${apiBaseUrl}/spot-delete/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              // Update Deleted Data
+              const remaiming = myList.filter((dt) => dt._id !== id);
+              setMyList(remaiming);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Spot has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
 
   // Get User Added Data
   useEffect(() => {
@@ -54,7 +87,10 @@ const MyList = () => {
                       <Link to={`/update-my-spot/${mList._id}`}>
                         <FaPenSquare className="text-xl cursor-pointer text-black" />
                       </Link>
-                      <FaTrash className="text-xl cursor-pointer text-red-700" />
+                      <FaTrash
+                        className="text-xl cursor-pointer text-red-700"
+                        onClick={() => handleDeleteSpot(mList._id)}
+                      />
                     </td>
                   </tr>
                 ))
