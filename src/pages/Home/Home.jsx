@@ -7,9 +7,11 @@ import "swiper/css/pagination";
 import Hero from "../../components/Hero/Hero";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import SpotCard from "../../components/SportCard/SpotCard";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
+import Loader from "../Loader/Loader";
 const Home = () => {
   const spots = useLoaderData();
+  const navigation = useNavigation();
 
   let heroInfo = [
     {
@@ -42,6 +44,9 @@ const Home = () => {
       image: "borneo_jungle.jpg",
     },
   ];
+  if (navigation.state === "loading") {
+    return <Loader />;
+  }
 
   return (
     <div>
