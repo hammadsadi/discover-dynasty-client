@@ -1,4 +1,19 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { apiBaseUrl } from "../../utils/baseUrl";
+
 const UpdateSpot = () => {
+  const { id } = useParams();
+  const [spot, setSpot] = useState({});
+  console.log(spot);
+
+  // Get Single Spot
+  useEffect(() => {
+    fetch(`${apiBaseUrl}/update-my-spot-list/${id}`)
+      .then((res) => res.json())
+      .then((data) => setSpot(data));
+  }, [id]);
+
   const handleCreateTouristsSpot = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -43,6 +58,7 @@ const UpdateSpot = () => {
               <input
                 type="text"
                 name="touristsSpotName"
+                defaultValue={spot?.touristsSpotName}
                 id="touristsSpotName"
                 placeholder=" Tourists Spot Name"
                 className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
@@ -59,6 +75,7 @@ const UpdateSpot = () => {
               <input
                 type="text"
                 name="photoURL"
+                defaultValue={spot?.photoURL}
                 id="photoURL"
                 placeholder="photo URL"
                 className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
@@ -73,14 +90,23 @@ const UpdateSpot = () => {
               >
                 Country Name
               </label>
-              <input
-                type="text"
+              <select
+                className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
                 name="countryName"
-                id="countryName"
-                placeholder="Country Name"
-                className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
-              />
+                value={spot?.countryName}
+              >
+                <option disabled selected>
+                  Chose Country
+                </option>
+                <option value="bangladesh">Bangladesh</option>
+                <option value="thailand">Thailand</option>
+                <option value="indonesia">Indonesia</option>
+                <option value="malaysia">Malaysia</option>
+                <option value="vietnam">Vietnam</option>
+                <option value="cambodia">Cambodia</option>
+              </select>
             </div>
+
             {/* Location */}
             <div className="space-y-1 text-sm">
               <label
@@ -92,6 +118,7 @@ const UpdateSpot = () => {
               <input
                 type="text"
                 name="location"
+                defaultValue={spot?.location}
                 id="location"
                 placeholder="Location"
                 className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
@@ -109,6 +136,7 @@ const UpdateSpot = () => {
               <input
                 type="number"
                 name="averageCost"
+                defaultValue={spot?.averageCost}
                 id="averageCost"
                 placeholder="Average Cost"
                 className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
@@ -125,6 +153,7 @@ const UpdateSpot = () => {
               <select
                 className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
                 name="seasonality"
+                value={spot?.seasonality}
               >
                 <option disabled selected>
                   Seasonality
@@ -145,6 +174,7 @@ const UpdateSpot = () => {
               <input
                 type="number"
                 name="travelTime"
+                defaultValue={spot?.travelTime}
                 id="travelTime"
                 placeholder="Travel Time"
                 className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
@@ -162,6 +192,7 @@ const UpdateSpot = () => {
               <input
                 type="number"
                 name="totalVisitorsPerYear"
+                defaultValue={spot?.totalVisitorsPerYear}
                 id="totalVisitorsPerYear"
                 placeholder="Total Visitors Per Year"
                 className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
@@ -177,6 +208,7 @@ const UpdateSpot = () => {
               </label>
               <textarea
                 name="shortDescription"
+                defaultValue={spot?.shortDescription}
                 id=""
                 rows="2"
                 className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
