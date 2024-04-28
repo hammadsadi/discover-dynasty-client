@@ -1,19 +1,26 @@
 import { FaPenSquare } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { apiBaseUrl } from "../../utils/baseUrl";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
-  console.log(user.email);
+  const [myList, setMyList] = useState([]);
+  console.log(myList);
 
   // Get User Added Data
   useEffect(() => {
-    fetch(`${apiBaseUrl}/user-added-spot-list/${user?.userEmail}`)
+    fetch(`${apiBaseUrl}/user-added-spot-list/${user?.email}`)
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.length > 0) {
+          setMyList(data);
+        } else {
+          setMyList(null);
+        }
+      });
   }, [user]);
   return (
     <div>
@@ -26,7 +33,6 @@ const MyList = () => {
             {/* head */}
             <thead>
               <tr>
-                <th>#</th>
                 <th>Spot Name</th>
                 <th>Location</th>
                 <th>Average Cost</th>
@@ -36,7 +42,25 @@ const MyList = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              <tr className="bg-base-200">
+              {myList ? (
+                myList.map((mList) => (
+                  <tr className="bg-base-200" key={mList._id}>
+                    <td>{mList?.touristsSpotName}</td>
+                    <td>{mList?.location}</td>
+                    <td>${mList?.averageCost}</td>
+                    <td>{mList?.travelTime} Day</td>
+                    <td className="flex gap-1">
+                      <FaPenSquare className="text-xl cursor-pointer text-black" />
+                      <FaTrash className="text-xl cursor-pointer text-red-700" />
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr className="bg-base-200 text-center">
+                  <th colSpan={6}>You Have Not Added any Spot </th>
+                </tr>
+              )}
+              {/* <tr className="bg-base-200">
                 <th>1</th>
                 <td>Cy dd</td>
                 <td>Bangladesh</td>
@@ -46,7 +70,7 @@ const MyList = () => {
                   <FaPenSquare className="text-xl cursor-pointer text-black" />
                   <FaTrash className="text-xl cursor-pointer text-red-700" />
                 </td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
