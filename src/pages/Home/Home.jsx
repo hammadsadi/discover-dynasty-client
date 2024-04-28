@@ -16,32 +16,35 @@ const Home = () => {
   let heroInfo = [
     {
       id: 1,
-      title: "Explore the Ancient Temples of Angkor Wat",
+      title: "Sundarban National Park",
       subtitle:
-        "Discover the mystique of Angkor Wat's ancient ruins, an architectural marvel spanning centuries.",
+        "Sundarban National park is one of the heritage site in sundarban",
       image:
-        "https://images.squarespace-cdn.com/content/v1/629b6ec76c0cc40a4e21a895/d9276351-a9a7-47ff-a4c7-16bc7eb3d774/Bayon_Temple_Angkor_Park_Cambodia_Travelynne.png",
+        "https://www.holidify.com/images/cmsuploads/compressed/Beauty_of_sundarban_04_20220509173753.jpg",
     },
     {
       id: 2,
-      title: "Dive into the Pristine Waters of Palawan",
+      title: "Tour To Cox's Bazar",
       subtitle:
-        "Experience the unparalleled beauty of Palawan's crystal-clear waters and vibrant marine life.",
-      image: "palawan.jpg",
+        "Back to coxs bazar sea beach. Enjoy Sunset and night beach, Overnight at Cox's Bazar.",
+      image:
+        "https://cdn.bangladeshscenictours.com/wp-content/uploads/2019/11/Exploring-Coxs-Bazar.jpg",
     },
     {
       id: 3,
-      title: "Indulge in Street Food Delights of Penang",
+      title: "Bustling Bangkok A Vibrant City Exploration",
       subtitle:
-        "Savor the diverse flavors of Penang's bustling street food scene, a gastronomic adventure awaits!",
-      image: "penang_street_food.jpg",
+        "Embark on an unforgettable journey through Bangkok, where ancient traditions meet modern marvels.",
+      image:
+        "https://airfare.com.bd/wp-content/uploads/2023/04/bangkok-tour-package.jpg",
     },
     {
       id: 4,
-      title: "Embark on a Trek through the Lush Jungles of Borneo",
+      title: "Borobudur Sunrise from setumbu Hill",
       subtitle:
-        "Immerse yourself in the untouched wilderness of Borneo's rainforests, home to rare wildlife and breathtaking landscapes.",
-      image: "borneo_jungle.jpg",
+        "Check out three of the best sites in Yogyakarta on this trip to Merapi Volcano, Prambanan Temples, and Borobudur Temple.",
+      image:
+        "https://www.novo-monde.com/app/uploads/2023/05/yogyakarta-borobudur3-1024x680.jpg",
     },
   ];
   if (navigation.state === "loading") {
@@ -67,7 +70,7 @@ const Home = () => {
           >
             {heroInfo.map((hData) => (
               <SwiperSlide key={hData.id}>
-                <Hero />
+                <Hero heroData={hData} />
               </SwiperSlide>
             ))}
           </Swiper>
