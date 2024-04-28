@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const SpotCard = ({ spot }) => {
   // console.log(spot);
   return (
-    <div className="card card-compact bg-base-100 shadow-xl dark:bg-red-600 ">
+    <div className="card card-compact bg-base-100 shadow-xl">
       <div className="relative">
         <figure>
           <img src={spot?.photoURL} alt="Shoes" className="rounded-t-2xl" />

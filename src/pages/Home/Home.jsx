@@ -9,6 +9,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import SpotCard from "../../components/SportCard/SpotCard";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import TourGuide from "../../components/TourGuide/TourGuide";
 const Home = () => {
   const spots = useLoaderData();
   const navigation = useNavigation();
@@ -83,7 +84,7 @@ const Home = () => {
           <SectionTitle
             title={"Tourists Spots"}
             subTitle={
-              "is rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus. Suspendissendt blandit interdum. Sed pellentesque at nunc eget consectetur."
+              "Grand Palace Thai architectural masterpiece, former royal residence adorned with intricate details and sacred relics."
             }
           />
         </div>
@@ -91,6 +92,23 @@ const Home = () => {
           {spots.map((data) => (
             <SpotCard key={data._id} spot={data} />
           ))}
+        </div>
+      </section>
+
+      {/* Tour Guide */}
+      <section className="container mx-auto my-16 md:my-24 px-2 md:px-0 ">
+        <div>
+          <SectionTitle
+            title={"Tour Guide"}
+            subTitle={
+              "Your ultimate guide to Bangkok's top attractions, hotels, dining, and events. Discover insider tips and curated itineraries for an unforgettable journey through the vibrant streets of Thailand's capital"
+            }
+          />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+          <TourGuide />
+          <TourGuide />
+          <TourGuide />
         </div>
       </section>
     </div>
