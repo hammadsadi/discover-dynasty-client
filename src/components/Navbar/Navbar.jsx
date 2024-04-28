@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, userLogout } = useContext(AuthContext);
-  console.log(user);
   // handleUserLogOut
   const handleUserLogOut = () => {
     userLogout()
@@ -130,18 +129,11 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <div className="space-x-2 flex z-40">
-              <Link
-                className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
-                onClick={handleUserLogOut}
-              >
-                Logout
-              </Link>
-
-              <div className="dropdown dropdown-end relative group">
+              <div className="dropdown dropdown-end relative group transition-all duration-5000">
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className="btn btn-ghost btn-circle avatar "
                 >
                   <div className="w-10 rounded-full ">
                     <img alt={user.displayName} src={user.photoURL} />
@@ -149,10 +141,20 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm absolute right-0 bg-base-100 rounded-box w-52 invisible group-hover:visible text-center"
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm absolute right-0 bg-base-100 rounded-box w-52 invisible group-hover:visible text-center transition-all duration-5000"
                 >
                   <li>
-                    <h2 className="text-center">{user.displayName}</h2>
+                    <h2 className="text-center font-bold">
+                      {user.displayName}
+                    </h2>
+                  </li>
+                  <li>
+                    <Link
+                      className="text-center inline-block bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
+                      onClick={handleUserLogOut}
+                    >
+                      Logout
+                    </Link>
                   </li>
                 </ul>
               </div>

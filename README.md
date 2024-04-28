@@ -17,6 +17,6 @@ Click here for the Live Site: [https://discoverdynasty](https://discoverdynasty)
 - Update Data
 - Fully Responsive
 
-## selected category's name
+# Selected category's name
 
-# Southeast Asia
+## Southeast Asia
