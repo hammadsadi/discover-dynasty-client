@@ -55,7 +55,7 @@ const Home = () => {
         <div>
           <Swiper
             autoplay={{
-              delay: 1000,
+              delay: 9000,
               disableOnInteraction: false,
             }}
             loop={true}

@@ -15,3 +15,6 @@ body {
   background-color: transparent;
   color: #ff4838;
 }
+.swiper-pagination-bullet-active {
+  background-color: #ff4838 !important;
+}

@@ -44,7 +44,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/"
-                  className="font-medium capitalize text-color-secondary text-base"
+                  className="font-medium capitalize text-color-secondary text-base dark:text-white"
                 >
                   Home
                 </NavLink>
@@ -52,7 +52,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/all-tourists-spots"
-                  className="font-medium capitalize text-color-secondary text-base"
+                  className="font-medium capitalize text-color-secondary text-base dark:text-white"
                 >
                   All Tourists Spot
                 </NavLink>
@@ -62,7 +62,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/add-tourist-spot"
-                      className="font-medium capitalize text-color-secondary text-base"
+                      className="font-medium capitalize text-color-secondary text-base dark:text-white"
                     >
                       Add Tourists Spot
                     </NavLink>
@@ -70,7 +70,7 @@ const Navbar = () => {
                   <li>
                     <NavLink
                       to="/my-list"
-                      className="font-medium capitalize text-color-secondary text-base"
+                      className="font-medium capitalize text-color-secondary text-base dark:text-white"
                     >
                       My List
                     </NavLink>
@@ -81,7 +81,7 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="btn btn-ghost text-xl md:text-2xl font-black text-color-secondary flex gap-0"
+            className="btn btn-ghost text-xl md:text-2xl font-black text-color-secondary dark:text-white flex gap-0"
           >
             Discover<span className="text-color-primary">D</span>ynasty
           </Link>
@@ -91,7 +91,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/"
-                className="font-medium capitalize text-color-secondary text-base"
+                className="font-medium capitalize text-color-secondary text-base dark:text-white"
               >
                 Home
               </NavLink>
@@ -99,7 +99,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/all-tourists-spots"
-                className="font-medium capitalize text-color-secondary text-base"
+                className="font-medium capitalize text-color-secondary text-base dark:text-white"
               >
                 All Tourists Spot
               </NavLink>
@@ -110,7 +110,7 @@ const Navbar = () => {
                 <li>
                   <NavLink
                     to="/add-tourist-spot"
-                    className="font-medium capitalize text-color-secondary text-base"
+                    className="font-medium capitalize text-color-secondary text-base dark:text-white"
                   >
                     Add Tourists Spot
                   </NavLink>
@@ -118,7 +118,7 @@ const Navbar = () => {
                 <li>
                   <NavLink
                     to="/my-list"
-                    className="font-medium capitalize text-color-secondary text-base"
+                    className="font-medium capitalize text-color-secondary text-base dark:text-white"
                   >
                     My List
                   </NavLink>
@@ -158,7 +158,7 @@ const Navbar = () => {
               </div>
             </div>
           ) : (
-            <div className="space-x-2">
+            <div className="space-x-2 flex">
               <Link
                 to="/login"
                 className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary "
@@ -167,7 +167,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/sign-up"
-                className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary"
+                className="btn bg-color-primary text-white font-medium capitalize border-none hover:border-none text-base hover:bg-color-primary hidden md:flex"
               >
                 Register
               </Link>

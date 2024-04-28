@@ -1,8 +1,20 @@
 import { FaPenSquare } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { apiBaseUrl } from "../../utils/baseUrl";
 
 const MyList = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user.email);
+
+  // Get User Added Data
+  useEffect(() => {
+    fetch(`${apiBaseUrl}/user-added-spot-list/${user?.userEmail}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }, [user]);
   return (
     <div>
       <section className="container mx-auto my-16 md:my-24 px-2 md:px-0 ">

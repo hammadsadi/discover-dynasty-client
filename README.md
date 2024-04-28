@@ -12,3 +12,7 @@ Click here for the Live Site: [https://discoverdynasty](https://discoverdynasty)
 - Password Validation
 - Protected Route
 - User Logout
+- Add Data
+- Delete Data
+- Update Data
+- Fully Responsive
