@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 const Hero = ({ heroData }) => {
-  console.log(heroData);
   return (
     <div
       className="hero min-h-[calc(100vh-72px)] z-0"

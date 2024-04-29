@@ -2,9 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { apiBaseUrl } from "../../utils/baseUrl";
 import toast from "react-hot-toast";
+import { useNavigation } from "react-router-dom";
+import Loader from "../Loader/Loader";
+import { makeUserName } from "../../utils/helper";
 
 const AddTouristsSpot = () => {
   const { user } = useContext(AuthContext);
+  const navigation = useNavigation();
   const handleCreateTouristsSpot = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,7 +22,7 @@ const AddTouristsSpot = () => {
     const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
     const shortDescription = form.shortDescription.value;
     const userEmail = user.email || "Not Set";
-    const userName = user.displayName;
+    const userName = makeUserName(user.displayName);
     if (
       !touristsSpotName ||
       !photoURL ||
@@ -61,6 +65,10 @@ const AddTouristsSpot = () => {
         e.target.reset();
       });
   };
+
+  if (navigation.state === "loading") {
+    return <Loader />;
+  }
   return (
     <div>
       <div className="flex justify-center items-center w-full my-4">

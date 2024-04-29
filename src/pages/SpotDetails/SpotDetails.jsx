@@ -10,7 +10,6 @@ import { apiBaseUrl } from "../../utils/baseUrl";
 const SpotDetails = () => {
   const { id } = useParams();
   const [spot, setSpot] = useState({});
-  console.log(spot);
 
   // Get Single Spot
   useEffect(() => {

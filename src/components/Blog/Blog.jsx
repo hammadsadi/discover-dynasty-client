@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 const Blog = ({ news }) => {
-  console.log(news);
   return (
     <a
       rel="noopener noreferrer"

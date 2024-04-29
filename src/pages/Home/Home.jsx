@@ -11,9 +11,13 @@ import { useLoaderData, useNavigation } from "react-router-dom";
 import Loader from "../Loader/Loader";
 import TourGuide from "../../components/TourGuide/TourGuide";
 import Blog from "../../components/Blog/Blog";
+import Countries from "../../components/Countries/Countries";
+import { useEffect, useState } from "react";
+import { apiBaseUrl } from "../../utils/baseUrl";
 const Home = () => {
   const spots = useLoaderData();
   const navigation = useNavigation();
+  const [countryList, setCountryList] = useState([]);
 
   let heroInfo = [
     {
@@ -78,9 +82,15 @@ const Home = () => {
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/a7/84/76/phnom-bokor-national.jpg?w=1200&h=1200&s=1",
     },
   ];
+  useEffect(() => {
+    fetch(`${apiBaseUrl}/counties`)
+      .then((res) => res.json())
+      .then((data) => setCountryList(data));
+  }, []);
   if (navigation.state === "loading") {
     return <Loader />;
   }
+  // Get All Countries
 
   return (
     <div>
@@ -124,7 +134,22 @@ const Home = () => {
           ))}
         </div>
       </section>
-
+      {/* Country Section */}
+      <section className="container mx-auto my-16 md:my-24 px-2 md:px-0 ">
+        <div>
+          <SectionTitle
+            title={"Popular Country"}
+            subTitle={
+              "Amazing news & blog for every update from Discover Dynasty"
+            }
+          />
+        </div>
+        <div className="grid grid-cols-1 gap-4">
+          {countryList?.map((country) => (
+            <Countries key={country._id} country={country} />
+          ))}
+        </div>
+      </section>
       {/* Tour Guide */}
       <section className="container mx-auto my-16 md:my-24 px-2 md:px-0 ">
         <div>

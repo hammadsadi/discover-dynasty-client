@@ -4,12 +4,14 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { apiBaseUrl } from "../../utils/baseUrl";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import Swal from "sweetalert2";
+import Loader from "../Loader/Loader";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
   const [myList, setMyList] = useState([]);
+  const navigation = useNavigation();
 
   // Handle Delete Spot
   const handleDeleteSpot = (id) => {
@@ -56,6 +58,10 @@ const MyList = () => {
         }
       });
   }, [user]);
+
+  if (navigation.state === "loading") {
+    return <Loader />;
+  }
   return (
     <div>
       <section className="container mx-auto my-16 md:my-24 px-2 md:px-0 ">
