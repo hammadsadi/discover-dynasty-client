@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-
+import PropTypes from "prop-types";
 const Countries = ({ country }) => {
-  console.log(country);
   return (
-    <Link to="/">
+    <Link to={`/countries/${country.countryName}`}>
       <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row p-4 lg:p-8 dark:bg-gray-100 dark:text-gray-800 border border-slate-50">
         <img
           src={country?.photoURL}
@@ -22,5 +21,7 @@ const Countries = ({ country }) => {
     </Link>
   );
 };
-
+Countries.propTypes = {
+  country: PropTypes.object,
+};
 export default Countries;

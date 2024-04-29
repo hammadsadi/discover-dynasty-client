@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import { apiBaseUrl } from "../utils/baseUrl";
 import MyList from "../pages/MyList/MyList";
 import UpdateSpot from "../pages/UpdateSpot/UpdateSpot";
+import SpecificCountry from "../pages/SpecificCountry/SpecificCountry";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             <SpotDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/countries/:country",
+        element: <SpecificCountry />,
       },
       {
         path: "/update-my-spot/:id",
