@@ -16,7 +16,7 @@ const AddTouristsSpot = () => {
     const photoURL = form.photoURL.value;
     const countryName = form.countryName.value;
     const location = form.location.value;
-    const averageCost = form.averageCost.value;
+    const averageCost = parseInt(form.averageCost.value);
     const seasonality = form.seasonality.value;
     const travelTime = form.travelTime.value;
     const totalVisitorsPerYear = form.totalVisitorsPerYear.value;
@@ -110,7 +110,6 @@ const AddTouristsSpot = () => {
               />
             </div>
 
-            {/* Country Name */}
             {/* Country Name */}
             <div className="space-y-1 text-sm">
               <label

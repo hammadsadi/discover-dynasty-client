@@ -83,9 +83,26 @@ const Home = () => {
     },
   ];
   const tourGuide = [
-    { id: 1, image: "image1.jpg", name: "Destination A", position: "First" },
-    { id: 2, image: "image2.jpg", name: "Destination B", position: "Second" },
-    { id: 3, image: "image3.jpg", name: "Destination C", position: "Third" },
+    {
+      id: 1,
+      image:
+        "https://powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+      name: "Mohaimin Robi",
+      position: "Tour Guide",
+    },
+    {
+      id: 2,
+      image:
+        "https://www.ultimatebeaver.com/wp-content/uploads/2021/04/photo-gallery-img-02.jpg",
+      name: "Hujayfa",
+      position: "Tour Guide",
+    },
+    {
+      id: 3,
+      image: "https://unitedthemes.com/wp-content/uploads/2018/09/team2.jpg",
+      name: "Ronald RK",
+      position: "Tour Guide",
+    },
   ];
   useEffect(() => {
     fetch(`${apiBaseUrl}/counties`)
@@ -166,9 +183,9 @@ const Home = () => {
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          <TourGuide />
-          <TourGuide />
-          <TourGuide />
+          {tourGuide.map((tour) => (
+            <TourGuide key={tour.id} tour={tour} />
+          ))}
         </div>
       </section>
 
