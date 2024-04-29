@@ -60,7 +60,7 @@ const MyList = () => {
           setMyList(null);
         }
       });
-  }, [user]);
+  }, [username]);
 
   if (navigation.state === "loading") {
     return <Loader />;
