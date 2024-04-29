@@ -5,7 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Footer = () => {
   const { user } = useContext(AuthContext);
   return (
-    <footer className="px-4 divide-y bg-gray-100 dark:bg-black dark:text-white">
+    <footer className="px-4 divide-y bg-black  dark:text-white">
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
         <div className="lg:w-1/3">
           <a
@@ -16,14 +16,14 @@ const Footer = () => {
             <div className="flex items-center justify-center w-12 h-12 rounded-full">
               <img src={dLogo} alt="" />
             </div>
-            <span className="self-center text-2xl font-semibold">
+            <span className="self-center text-2xl font-semibold text-slate-50 text-opacity-70">
               Discover<span className="text-color-primary">D</span>ynasty
             </span>
           </a>
         </div>
-        <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
+        <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4 text-slate-50 text-opacity-70">
           <div className="space-y-3">
-            <h3 className="tracking-wide uppercase dark:text-white font-semibold">
+            <h3 className="tracking-wide uppercase font-semibold">
               Quick Link
             </h3>
             <ul className="space-y-1">
@@ -131,7 +131,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="py-6 text-sm text-center dark:text-white">
+      <div className="py-6 text-sm text-center text-slate-50 text-opacity-70">
         © 2024 Discover Dynasty. All rights reserved.
       </div>
     </footer>
