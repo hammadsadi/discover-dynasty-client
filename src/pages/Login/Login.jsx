@@ -4,10 +4,11 @@ import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { userLogin, userLoginWithGoogle } = useContext(AuthContext);
+  const { userLogin, userLoginWithGoogle, signInGithub } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("From Login", location);
+
   const handleUserLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -30,7 +31,16 @@ const Login = () => {
         location.state ? navigate(location.state) : navigate("/");
       })
       .catch((err) => {
-        console.log(err.message);
+        toast.error(err.message);
+      });
+  };
+  const handleSignInWithGithub = () => {
+    signInGithub()
+      .then(() => {
+        toast.success("Login Successful");
+        location.state ? navigate(location.state) : navigate("/");
+      })
+      .catch((err) => {
         toast.error(err.message);
       });
   };
@@ -117,7 +127,11 @@ const Login = () => {
             </svg>
           </button>
 
-          <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
+          <button
+            aria-label="Log in with GitHub"
+            className="p-3 rounded-sm"
+            onClick={handleSignInWithGithub}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
