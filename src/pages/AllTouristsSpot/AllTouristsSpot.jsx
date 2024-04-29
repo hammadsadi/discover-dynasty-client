@@ -10,9 +10,7 @@ const AllTouristsSpot = () => {
       <section className="container mx-auto my-16 md:my-24 px-2 md:px-0">
         <SectionTitle
           title={"All Tourists Spots"}
-          subTitle={
-            "is rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus. Suspendissendt blandit interdum. "
-          }
+          subTitle={"Unveil Hidden Gems Explore Our Must-See Tourist Spots "}
         />
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {spots.map((data) => (

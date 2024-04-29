@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import SpotCard from "../../components/SportCard/SpotCard";
 import { apiBaseUrl } from "../../utils/baseUrl";
 import { useNavigation, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader";
+import SpecificSingleCountry from "../../components/SpecificSingleCountry/SpecificSingleCountry";
 
 const SpecificCountry = () => {
   const [relatedCountries, setRelatedCountries] = useState([]);
@@ -26,9 +26,14 @@ const SpecificCountry = () => {
         <div>
           <SectionTitle title={"Country Related Spots"} />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols- lg:grid-cols-4 gap-5">
           {relatedCountries.map((data) => (
-            <SpotCard key={data._id} spot={data} />
+            <SpecificSingleCountry
+              key={data._id}
+              spot={data}
+              isCountry={true}
+              isDesc={true}
+            />
           ))}
         </div>
       </section>

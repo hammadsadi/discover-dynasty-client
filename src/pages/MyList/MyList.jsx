@@ -7,11 +7,14 @@ import { apiBaseUrl } from "../../utils/baseUrl";
 import { Link, useNavigation } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loader from "../Loader/Loader";
+import { makeUserName } from "../../utils/helper";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
   const [myList, setMyList] = useState([]);
   const navigation = useNavigation();
+  let username = makeUserName(user.displayName);
+  console.log(username);
 
   // Handle Delete Spot
   const handleDeleteSpot = (id) => {
@@ -48,7 +51,7 @@ const MyList = () => {
 
   // Get User Added Data
   useEffect(() => {
-    fetch(`${apiBaseUrl}/user-added-spot-list/${user?.email}`)
+    fetch(`${apiBaseUrl}/user-added-spot-list/${username}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {

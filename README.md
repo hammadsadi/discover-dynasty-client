@@ -1,8 +1,8 @@
 # Discover Dynasty
 
-## [ Live Site URL](https://discoverdynasty)
+## [ Live Site URL](https://tourism-2d1ca.web.app)
 
-Click here for the Live Site: [https://discoverdynasty](https://discoverdynasty)
+Click here for the Live Site: [https://tourism-2d1ca.web.app](https://tourism-2d1ca.web.app)
 
 ## Website Features
 

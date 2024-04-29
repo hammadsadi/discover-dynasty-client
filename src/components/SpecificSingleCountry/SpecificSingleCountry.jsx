@@ -1,14 +1,10 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCircleDollarToSlot } from "react-icons/fa6";
-import { MdOutlineWatchLater } from "react-icons/md";
-import { LuUsers2 } from "react-icons/lu";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight, FaGlobe } from "react-icons/fa";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
-
-const SpotCard = ({ spot }) => {
-  // console.log(spot);
+const SpecificSingleCountry = ({ spot }) => {
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <div className="relative">
@@ -28,7 +24,13 @@ const SpotCard = ({ spot }) => {
           <h2 className="text-xl font-semibold text-color-sd">
             {spot?.touristsSpotName}
           </h2>
-
+          <p className="text-base text-color-opacity">
+            {spot?.shortDescription.slice(0, 100)}
+          </p>
+          <p className="flex gap-2 items-center">
+            <FaGlobe className="text-color-primary text-base" />{" "}
+            <span className="text-base">{spot?.countryName}</span>
+          </p>
           <p className="flex gap-2 items-center">
             <FaLocationDot className="text-color-primary text-base" />{" "}
             <span className="text-base">{spot?.location}</span>
@@ -45,15 +47,6 @@ const SpotCard = ({ spot }) => {
         </div>
 
         <div className="card-actions justify-end pt-1">
-          <p className="flex gap-2 items-center">
-            <MdOutlineWatchLater className="text-color-primary text-base" />{" "}
-            <span className="text-base"> {spot?.travelTime}</span>
-          </p>
-          <p className="flex gap-2 items-center">
-            <LuUsers2 className="text-color-primary text-base" />{" "}
-            <span className="text-base">{spot?.totalVisitorsPerYear}</span>
-          </p>
-
           <Link
             to={`/spot-details/${spot?._id}`}
             className="flex items-center gap-1 text-base transition-all duration-500 hover:text-color-primary"
@@ -66,9 +59,7 @@ const SpotCard = ({ spot }) => {
     </div>
   );
 };
-
-SpotCard.propTypes = {
+SpecificSingleCountry.propTypes = {
   spot: PropTypes.object.isRequired,
 };
-
-export default SpotCard;
+export default SpecificSingleCountry;

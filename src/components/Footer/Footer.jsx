@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import dLogo from "../../assets/images/icon-fav.png";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 const Footer = () => {
+  const { user } = useContext(AuthContext);
   return (
     <footer className="px-4 divide-y bg-gray-100 dark:bg-black dark:text-white">
       <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
@@ -25,25 +28,24 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li>
-                <a rel="noopener noreferrer" href="#">
+                <Link rel="noopener noreferrer" to="/all-tourists-spots">
                   All Tourists Spots
-                </a>
+                </Link>
               </li>
-              <li>
-                <a rel="noopener noreferrer" href="#">
-                  Integrations
-                </a>
-              </li>
-              <li>
-                <a rel="noopener noreferrer" href="#">
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a rel="noopener noreferrer" href="#">
-                  FAQ
-                </a>
-              </li>
+              {user && (
+                <li>
+                  <Link rel="noopener noreferrer" to="/add-tourist-spot">
+                    Add Tourist Spot
+                  </Link>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <Link rel="noopener noreferrer" to="/my-list">
+                    My List
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
           <div className="space-y-3">

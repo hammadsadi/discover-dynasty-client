@@ -82,6 +82,11 @@ const Home = () => {
         "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/a7/84/76/phnom-bokor-national.jpg?w=1200&h=1200&s=1",
     },
   ];
+  const tourGuide = [
+    { id: 1, image: "image1.jpg", name: "Destination A", position: "First" },
+    { id: 2, image: "image2.jpg", name: "Destination B", position: "Second" },
+    { id: 3, image: "image3.jpg", name: "Destination C", position: "Third" },
+  ];
   useEffect(() => {
     fetch(`${apiBaseUrl}/counties`)
       .then((res) => res.json())
@@ -124,7 +129,7 @@ const Home = () => {
           <SectionTitle
             title={"Tourists Spots"}
             subTitle={
-              "Grand Palace Thai architectural masterpiece, former royal residence adorned with intricate details and sacred relics."
+              "Discover Your Next Adventure Explore Our Top Tourist Spots"
             }
           />
         </div>
@@ -138,9 +143,9 @@ const Home = () => {
       <section className="container mx-auto my-16 md:my-24 px-2 md:px-0 ">
         <div>
           <SectionTitle
-            title={"Popular Country"}
+            title={"Explore Top Destination"}
             subTitle={
-              "Amazing news & blog for every update from Discover Dynasty"
+              "Embark on an Unforgettable Journey Explore Our Top Destinations"
             }
           />
         </div>
