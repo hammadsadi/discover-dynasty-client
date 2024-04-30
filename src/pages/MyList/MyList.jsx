@@ -14,7 +14,6 @@ const MyList = () => {
   const [myList, setMyList] = useState([]);
   const navigation = useNavigation();
   let username = makeUserName(user.displayName);
-  console.log(username);
 
   // Handle Delete Spot
   const handleDeleteSpot = (id) => {

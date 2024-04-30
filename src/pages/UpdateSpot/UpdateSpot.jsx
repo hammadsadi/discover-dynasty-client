@@ -21,6 +21,7 @@ const UpdateSpot = () => {
     const touristsSpotName = form.touristsSpotName.value;
     const photoURL = form.photoURL.value;
     const countryName = form.countryName.value;
+    console.log(countryName);
     const location = form.location.value;
     const averageCost = parseInt(form.averageCost.value);
     const seasonality = form.seasonality.value;
@@ -108,17 +109,47 @@ const UpdateSpot = () => {
               <select
                 className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
                 name="countryName"
-                defaultValue={spot?.countryName}
+                defaultValue={spot.countryName}
               >
                 <option disabled selected>
                   Chose Country
                 </option>
-                <option value="bangladesh">Bangladesh</option>
-                <option value="thailand">Thailand</option>
-                <option value="indonesia">Indonesia</option>
-                <option value="malaysia">Malaysia</option>
-                <option value="vietnam">Vietnam</option>
-                <option value="cambodia">Cambodia</option>
+                <option
+                  value="bangladesh"
+                  selected={spot.countryName === "bangladesh" ? true : false}
+                >
+                  Bangladesh
+                </option>
+                <option
+                  value="thailand"
+                  selected={spot.countryName === "thailand" ? true : false}
+                >
+                  Thailand
+                </option>
+                <option
+                  value="indonesia"
+                  selected={spot.countryName === "indonesia" ? true : false}
+                >
+                  Indonesia
+                </option>
+                <option
+                  value="malaysia"
+                  selected={spot.countryName === "malaysia" ? true : false}
+                >
+                  Malaysia
+                </option>
+                <option
+                  value="vietnam"
+                  selected={spot.countryName === "vietnam" ? true : false}
+                >
+                  Vietnam
+                </option>
+                <option
+                  value="cambodia"
+                  selected={spot.countryName === "cambodia" ? true : false}
+                >
+                  Cambodia
+                </option>
               </select>
             </div>
 
@@ -173,8 +204,18 @@ const UpdateSpot = () => {
                 <option disabled selected>
                   Seasonality
                 </option>
-                <option value="summer">Summer</option>
-                <option value="winter">Winter</option>
+                <option
+                  value="summer"
+                  selected={spot.seasonality === "summer" ? true : false}
+                >
+                  Summer
+                </option>
+                <option
+                  value="winter"
+                  selected={spot.seasonality === "winter" ? true : false}
+                >
+                  Winter
+                </option>
               </select>
             </div>
 

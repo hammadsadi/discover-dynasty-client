@@ -14,7 +14,10 @@ const SpecificCountry = () => {
   useEffect(() => {
     fetch(`${apiBaseUrl}/counties/${country}`)
       .then((res) => res.json())
-      .then((data) => setRelatedCountries(data));
+      .then((data) => {
+        setRelatedCountries(data);
+        console.log(data);
+      });
   }, [country]);
   if (navigation.state === "loading") {
     return <Loader />;
@@ -27,6 +30,14 @@ const SpecificCountry = () => {
           <SectionTitle title={"Country Related Spots"} />
         </div>
         <div className="grid grid-cols-1 md:grid-cols- lg:grid-cols-4 gap-5">
+          {/* {relatedCountries.map((data) => (
+            <SpecificSingleCountry
+              key={data._id}
+              spot={data}
+              isCountry={true}
+              isDesc={true}
+            />
+          ))} */}
           {relatedCountries.map((data) => (
             <SpecificSingleCountry
               key={data._id}
