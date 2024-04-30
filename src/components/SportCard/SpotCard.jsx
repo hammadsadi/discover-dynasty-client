@@ -12,7 +12,7 @@ const SpotCard = ({ spot, idx }) => {
   // console.log(spot);
   return (
     <Fade direction="left" delay={idx * 100}>
-      <div className="card card-compact bg-base-100 shadow-xl">
+      <div className="card card-compact bg-base-100 shadow-xl flex flex-col">
         <div className="relative">
           <figure>
             <img
@@ -25,7 +25,7 @@ const SpotCard = ({ spot, idx }) => {
             {spot?.seasonality}
           </span>
         </div>
-        <div className="card-body bg-white relative -top-4 rounded-t-3xl  ">
+        <div className="card-body bg-white relative -top-4 rounded-t-3xl flex-grow">
           <div className="flex flex-col gap-3 border-b pb-4">
             <h2 className="text-xl font-semibold text-color-sd">
               {spot?.touristsSpotName}

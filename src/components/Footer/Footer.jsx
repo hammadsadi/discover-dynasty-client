@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import dLogo from "../../assets/images/icon-fav.png";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+
 const Footer = () => {
   const { user } = useContext(AuthContext);
   return (
@@ -71,10 +73,22 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li>
-                <Link rel="noopener noreferrer">+8801760170010</Link>
+                <Link
+                  rel="noopener noreferrer"
+                  className="flex gap-1 items-center"
+                >
+                  <FaPhoneAlt /> +8801760170010
+                </Link>
               </li>
               <li>
-                <Link rel="noopener noreferrer">discoverdynasty@info.com</Link>
+                <Link
+                  rel="noopener noreferrer"
+                  className="flex gap-1 items-center"
+                >
+                  {" "}
+                  <FaEnvelope />
+                  discoverdynasty@info.com
+                </Link>
               </li>
             </ul>
           </div>

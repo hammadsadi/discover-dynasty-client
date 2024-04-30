@@ -5,8 +5,7 @@ const Blog = ({ news, idx }) => {
     <Fade direction="left" delay={idx * 300}>
       <a
         rel="noopener noreferrer"
-        href="#"
-        className=" mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50 border rounded-t-md"
+        className=" mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50"
       >
         <img
           role="presentation"
