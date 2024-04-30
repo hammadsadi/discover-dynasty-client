@@ -49,8 +49,8 @@ const AllTouristsSpot = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {spots.map((data) => (
-            <SpotCard key={data._id} spot={data} />
+          {spots.map((data, idx) => (
+            <SpotCard key={data._id} spot={data} idx={idx} />
           ))}
         </div>
       </section>

@@ -8,6 +8,7 @@ import { Link, useNavigation } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loader from "../Loader/Loader";
 import { makeUserName } from "../../utils/helper";
+import { Fade } from "react-awesome-reveal";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -71,43 +72,44 @@ const MyList = () => {
           <SectionTitle title={"Spot Added List"} />
         </div>
         <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Spot Name</th>
-                <th>Location</th>
-                <th>Average Cost</th>
-                <th>Travel Time</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* row 1 */}
-              {myList ? (
-                myList.map((mList) => (
-                  <tr className="bg-base-200" key={mList._id}>
-                    <td>{mList?.touristsSpotName}</td>
-                    <td>{mList?.location}</td>
-                    <td>${mList?.averageCost}</td>
-                    <td>{mList?.travelTime} Day</td>
-                    <td className="flex gap-1">
-                      <Link to={`/update-my-spot/${mList._id}`}>
-                        <FaPenSquare className="text-xl cursor-pointer text-black" />
-                      </Link>
-                      <FaTrash
-                        className="text-xl cursor-pointer text-red-700"
-                        onClick={() => handleDeleteSpot(mList._id)}
-                      />
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr className="bg-base-200 text-center">
-                  <th colSpan={6}>You Have Not Added any Spot </th>
+          <Fade>
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>Spot Name</th>
+                  <th>Location</th>
+                  <th>Average Cost</th>
+                  <th>Travel Time</th>
+                  <th>Action</th>
                 </tr>
-              )}
-              {/* <tr className="bg-base-200">
+              </thead>
+              <tbody>
+                {/* row 1 */}
+                {myList ? (
+                  myList.map((mList) => (
+                    <tr className="bg-base-200" key={mList._id}>
+                      <td>{mList?.touristsSpotName}</td>
+                      <td>{mList?.location}</td>
+                      <td>${mList?.averageCost}</td>
+                      <td>{mList?.travelTime} Day</td>
+                      <td className="flex gap-1">
+                        <Link to={`/update-my-spot/${mList._id}`}>
+                          <FaPenSquare className="text-xl cursor-pointer text-black" />
+                        </Link>
+                        <FaTrash
+                          className="text-xl cursor-pointer text-red-700"
+                          onClick={() => handleDeleteSpot(mList._id)}
+                        />
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr className="bg-base-200 text-center">
+                    <th colSpan={6}>You Have Not Added any Spot </th>
+                  </tr>
+                )}
+                {/* <tr className="bg-base-200">
                 <th>1</th>
                 <td>Cy dd</td>
                 <td>Bangladesh</td>
@@ -118,8 +120,9 @@ const MyList = () => {
                   <FaTrash className="text-xl cursor-pointer text-red-700" />
                 </td>
               </tr> */}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </Fade>
         </div>
       </section>
     </div>

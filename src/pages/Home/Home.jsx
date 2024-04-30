@@ -151,8 +151,8 @@ const Home = () => {
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {spots.map((data) => (
-            <SpotCard key={data._id} spot={data} />
+          {spots.map((data, idx) => (
+            <SpotCard key={data._id} spot={data} idx={idx} />
           ))}
         </div>
       </section>
@@ -167,8 +167,8 @@ const Home = () => {
           />
         </div>
         <div className="grid grid-cols-1 gap-4">
-          {countryList?.map((country) => (
-            <Countries key={country._id} country={country} />
+          {countryList?.map((country, idx) => (
+            <Countries key={country._id} country={country} idx={idx} />
           ))}
         </div>
       </section>
@@ -183,8 +183,8 @@ const Home = () => {
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          {tourGuide.map((tour) => (
-            <TourGuide key={tour.id} tour={tour} />
+          {tourGuide.map((tour, idx) => (
+            <TourGuide key={tour.id} tour={tour} idx={idx} />
           ))}
         </div>
       </section>
@@ -200,8 +200,8 @@ const Home = () => {
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          {newsInfo.map((news) => (
-            <Blog key={news.id} news={news} />
+          {newsInfo.map((news, idx) => (
+            <Blog key={news.id} news={news} idx={idx} />
           ))}
         </div>
       </section>
