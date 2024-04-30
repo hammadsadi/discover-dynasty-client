@@ -30,6 +30,11 @@ const Footer = () => {
             </h3>
             <ul className="space-y-1">
               <li>
+                <Link rel="noopener noreferrer" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>
                 <Link rel="noopener noreferrer" to="/all-tourists-spots">
                   All Tourists Spots
                 </Link>
