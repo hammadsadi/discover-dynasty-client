@@ -24,7 +24,7 @@ Click here for the Live Site: [https://tourism-2d1ca.web.app](https://tourism-2d
 
 1. At First Clone This Repo
 
- <img src="https://i.postimg.cc/C1vK1D4H/shopcli1.png" alt="" />
+ <img src="https://i.postimg.cc/JhmxCT5F/discover-diasnaty.png" alt="" />
 
 2. Open This Project on Your Favourite Code Editor and Run This Command on the Vs Code terminal
 
