@@ -28,7 +28,7 @@ const SpecificCountry = () => {
         <div>
           <SectionTitle title={"Country Related Spots"} />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols- lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols- lg:grid-cols-3 gap-5">
           {relatedCountries.map((data, idx) => (
             <SpecificSingleCountry key={data._id} spot={data} idx={idx} />
           ))}
