@@ -13,12 +13,12 @@ const Hero = ({ heroData }) => {
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
           <Fade direction="left">
-            <h1 className="mb-5 text-5xl font-bold dark:text-white">
+            <h1 className="mb-5 text-5xl font-bold text-white">
               {heroData?.title}
             </h1>
           </Fade>
           <Fade direction="left" delay={300}>
-            <p className="mb-5 dark:text-white">{heroData?.subtitle}</p>
+            <p className="mb-5 text-white">{heroData?.subtitle}</p>
           </Fade>
           <Fade delay={400}>
             <button className="btn bg-color-primary border-color-primary text-white hover:bg-color-primary hover:bg-opacity-80 hover:border-color-primary">
