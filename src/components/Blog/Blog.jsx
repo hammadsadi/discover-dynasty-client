@@ -5,18 +5,20 @@ const Blog = ({ news, idx }) => {
     <Fade direction="left" delay={idx * 300}>
       <a
         rel="noopener noreferrer"
-        className=" mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50"
+        className=" mx-auto group hover:no-underline focus:no-underline bg-slate-900/30 shadow-md inline-block"
       >
-        <img
-          role="presentation"
-          className="object-cover w-full rounded h-44 dark:bg-gray-500"
-          src={news.image}
-        />
+        <figure>
+          <img
+            role="presentation"
+            className="object-cover w-full rounded h-44"
+            src={news.image}
+          />
+        </figure>
         <div className="p-6 space-y-2">
-          <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+          <h3 className="text-2xl font-semibold group-hover:underline text-slate-200 group-focus:underline">
             {news.title}
           </h3>
-          <span className="text-xs dark:text-gray-600">January 22, 2021</span>
+          <span className="text-xs text-gray-600">January 22, 2021</span>
           <p>{news.desc.slice(0, 200)}...</p>
         </div>
       </a>

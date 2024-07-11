@@ -26,18 +26,18 @@ const Countries = ({ country, idx }) => {
         <div
           className={`flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row ${
             idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-          } p-4 lg:p-8 dark:bg-gray-100 dark:text-gray-800 border border-slate-50`}
+          } p-4 lg:p-8 bg-slate-900/30`}
         >
           <img
             src={country?.photoURL}
             alt=""
             className="h-80 dark:bg-gray-500 aspect-video"
           />
-          <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
-            <span className="text-xs uppercase dark:text-gray-600 bg-color-primary w-fit py-2 px-5 text-white">
+          <div className="flex flex-col justify-center flex-1 p-6 ">
+            <span className="text-xs uppercase  bg-color-primary w-fit py-2 px-5 text-white">
               {country?.countryName}
             </span>
-            <p className="my-6 dark:text-gray-600">
+            <p className="my-6 text-slate-200">
               {country?.shortDescription.slice(0, 250)}
             </p>
           </div>
