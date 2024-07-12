@@ -87,7 +87,7 @@ const AddTouristsSpot = () => {
     <div>
       <Fade>
         <div className="flex justify-center items-center w-full my-4">
-          <div className="w-full max-w-md p-8 space-y-3 rounded-xl  dark:text-gray-800 bg-slate-900/20">
+          <div className="w-full max-w-md p-8 space-y-3 rounded-xl   bg-slate-900/20">
             <h1 className="text-2xl font-bold text-slate-200 text-center">
               Create Tourists Spot
             </h1>
