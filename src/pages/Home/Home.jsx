@@ -26,7 +26,7 @@ const Home = () => {
       subtitle:
         "Sundarban National park is one of the heritage site in sundarban",
       image:
-        "https://www.holidify.com/images/cmsuploads/compressed/Beauty_of_sundarban_04_20220509173753.jpg",
+        "https://res.cloudinary.com/djkdsr5ad/image/upload/v1720784532/Beauty_of_sundarban_04_20220509173753_g3hmem.jpg",
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const Home = () => {
       subtitle:
         "Back to coxs bazar sea beach. Enjoy Sunset and night beach, Overnight at Cox's Bazar.",
       image:
-        "https://cdn.bangladeshscenictours.com/wp-content/uploads/2019/11/Exploring-Coxs-Bazar.jpg",
+        "https://res.cloudinary.com/djkdsr5ad/image/upload/v1720784753/Exploring-Coxs-Bazar_yvcju2.jpg",
     },
     {
       id: 3,
@@ -42,7 +42,7 @@ const Home = () => {
       subtitle:
         "Embark on an unforgettable journey through Bangkok, where ancient traditions meet modern marvels.",
       image:
-        "https://airfare.com.bd/wp-content/uploads/2023/04/bangkok-tour-package.jpg",
+        "https://res.cloudinary.com/djkdsr5ad/image/upload/v1720784817/bangkok-tour-package_rp3q4d.jpg",
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const Home = () => {
       subtitle:
         "Check out three of the best sites in Yogyakarta on this trip to Merapi Volcano, Prambanan Temples, and Borobudur Temple.",
       image:
-        "https://www.novo-monde.com/app/uploads/2023/05/yogyakarta-borobudur3-1024x680.jpg",
+        "https://res.cloudinary.com/djkdsr5ad/image/upload/v1720784988/punthuk_setumbu_bljrtc.jpg",
     },
   ];
   let newsInfo = [
@@ -86,7 +86,7 @@ const Home = () => {
     {
       id: 1,
       image:
-        "https://powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png",
+        "https://res.cloudinary.com/djkdsr5ad/image/upload/v1720782516/gnjlmekuizoqt7xk0f7r.jpg",
       name: "Mohaimin Robi",
       position: "Tour Guide",
     },
