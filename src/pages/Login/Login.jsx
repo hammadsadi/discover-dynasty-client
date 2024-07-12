@@ -1,25 +1,30 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { Fade } from "react-awesome-reveal";
+import { ImSpinner10 } from "react-icons/im";
 
 const Login = () => {
   const { userLogin, userLoginWithGoogle, signInGithub } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [uploaderSpin, setUploaderSpin] = useState(false);
 
   const handleUserLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    setUploaderSpin(true);
     userLogin(email, password)
       .then(() => {
         toast.success("Login Successful");
+        setUploaderSpin(false);
         location.state ? navigate(location.state) : navigate("/");
       })
       .catch(() => {
+        setUploaderSpin(false);
         toast.error("Invalid Email and Password");
       });
   };
@@ -29,9 +34,11 @@ const Login = () => {
     userLoginWithGoogle()
       .then(() => {
         toast.success("Login Successful");
+        setUploaderSpin(false);
         location.state ? navigate(location.state) : navigate("/");
       })
       .catch((err) => {
+        setUploaderSpin(false);
         toast.error(err.message);
       });
   };
@@ -39,9 +46,11 @@ const Login = () => {
     signInGithub()
       .then(() => {
         toast.success("Login Successful");
+        setUploaderSpin(false);
         location.state ? navigate(location.state) : navigate("/");
       })
       .catch((err) => {
+        setUploaderSpin(false);
         toast.error(err.message);
       });
   };
@@ -85,8 +94,16 @@ const Login = () => {
               />
             </div>
 
-            <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize">
-              Login
+            <button
+              className={` w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize flex justify-center items-center ${
+                uploaderSpin ? "bg-color-primary/30 cursor-not-allowed" : ""
+              }`}
+            >
+              {uploaderSpin ? (
+                <ImSpinner10 className="animate-spin" />
+              ) : (
+                <span> Login</span>
+              )}
             </button>
           </form>
           <div className="flex items-center pt-4 space-x-1">

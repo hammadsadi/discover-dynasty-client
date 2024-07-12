@@ -137,9 +137,6 @@ const Register = () => {
               />
             </div>
 
-            {/* <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize">
-              Register
-            </button> */}
             <button
               className={` w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize flex justify-center items-center ${
                 uploaderSpin ? "bg-color-primary/30 cursor-not-allowed" : ""
