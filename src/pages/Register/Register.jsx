@@ -55,7 +55,7 @@ const Register = () => {
   return (
     <Fade>
       <div className="flex justify-center items-center w-full h-screen">
-        <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-slate-900/20">
+        <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-slate-900/20 shadow-2xl">
           <h1 className="text-2xl font-bold text-center text-slate-200">
             Create Account
           </h1>

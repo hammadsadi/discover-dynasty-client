@@ -1,20 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { apiBaseUrl } from "../../utils/baseUrl";
 import toast from "react-hot-toast";
 import { useNavigation } from "react-router-dom";
 import Loader from "../Loader/Loader";
-import { makeUserName } from "../../utils/helper";
+import { makeUserName, uploadImageToCloudinary } from "../../utils/helper";
 import { Fade } from "react-awesome-reveal";
+import { ImSpinner10 } from "react-icons/im";
 
 const AddTouristsSpot = () => {
   const { user } = useContext(AuthContext);
+  const [uploaderSpin, setUploaderSpin] = useState(false);
   const navigation = useNavigation();
-  const handleCreateTouristsSpot = (e) => {
+  const handleCreateTouristsSpot = async (e) => {
     e.preventDefault();
     const form = e.target;
     const touristsSpotName = form.touristsSpotName.value;
-    const photoURL = form.photoURL.value;
+    const photoURL = form.photoURL.files[0];
     const countryName = form.countryName.value;
     const location = form.location.value;
     const averageCost = parseInt(form.averageCost.value);
@@ -24,6 +26,7 @@ const AddTouristsSpot = () => {
     const shortDescription = form.shortDescription.value;
     const userEmail = user.email || "Not Set";
     const userName = makeUserName(user.displayName);
+
     if (
       !touristsSpotName ||
       !photoURL ||
@@ -37,34 +40,44 @@ const AddTouristsSpot = () => {
     ) {
       return toast.error("All Fields Area Required!");
     }
-    const spotInfo = {
-      touristsSpotName,
-      photoURL,
-      countryName,
-      location,
-      averageCost,
-      seasonality,
-      travelTime,
-      totalVisitorsPerYear,
-      shortDescription,
-      userEmail,
-      userName,
-    };
-    // Send Data to Client
-    fetch(`${apiBaseUrl}/spot`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(spotInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          toast.success("Spot Created Successful");
-        }
-        e.target.reset();
-      });
+    try {
+      setUploaderSpin(true);
+      const imgUpload = await uploadImageToCloudinary(photoURL);
+      const spotInfo = {
+        touristsSpotName,
+        photoURL: imgUpload.data.secure_url,
+        countryName,
+        location,
+        averageCost,
+        seasonality,
+        travelTime,
+        totalVisitorsPerYear,
+        shortDescription,
+        userEmail,
+        userName,
+      };
+      // Send Data to Client
+      fetch(`${apiBaseUrl}/spot`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(spotInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            toast.success("Spot Created Successful");
+            setUploaderSpin(false);
+            e.target.reset();
+          } else {
+            setUploaderSpin(false);
+          }
+        });
+    } catch (error) {
+      setUploaderSpin(false);
+      console.log(error.message);
+    }
   };
 
   if (navigation.state === "loading") {
@@ -104,11 +117,11 @@ const AddTouristsSpot = () => {
                   Photo URL
                 </label>
                 <input
-                  type="text"
+                  type="file"
                   name="photoURL"
                   id="photoURL"
                   placeholder="photo URL"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 bg-[#121212] text-slate-300 outline-none"
                 />
               </div>
 
@@ -238,8 +251,16 @@ const AddTouristsSpot = () => {
                 ></textarea>
               </div>
 
-              <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize">
-                Add
+              <button
+                className={` w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize flex justify-center items-center ${
+                  uploaderSpin ? "bg-color-primary/30 cursor-not-allowed" : ""
+                }`}
+              >
+                {uploaderSpin ? (
+                  <ImSpinner10 className="animate-spin" />
+                ) : (
+                  <span> Add</span>
+                )}
               </button>
             </form>
           </div>

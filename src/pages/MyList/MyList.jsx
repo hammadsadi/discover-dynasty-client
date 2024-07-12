@@ -95,10 +95,10 @@ const MyList = () => {
                       <td>{mList?.travelTime} Day</td>
                       <td className="flex gap-1">
                         <Link to={`/update-my-spot/${mList._id}`}>
-                          <FaPenSquare className="text-xl cursor-pointer text-black" />
+                          <FaPenSquare className="text-xl cursor-pointer text-lime-500" />
                         </Link>
                         <FaTrash
-                          className="text-xl cursor-pointer text-red-700"
+                          className="text-xl cursor-pointer text-rose-600"
                           onClick={() => handleDeleteSpot(mList._id)}
                         />
                       </td>
