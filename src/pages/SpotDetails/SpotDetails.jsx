@@ -190,7 +190,7 @@ const SpotDetails = () => {
                           name="name"
                           id="name"
                           placeholder="Name"
-                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
+                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  outline-none"
                         />
                       </div>
                       <div className="space-y-1 text-sm">
@@ -205,7 +205,7 @@ const SpotDetails = () => {
                           name="email"
                           id="email"
                           placeholder="Email"
-                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
+                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  outline-none"
                         />
                       </div>
                       <div className="space-y-1 text-sm">
@@ -220,7 +220,7 @@ const SpotDetails = () => {
                           name="number"
                           id="number"
                           placeholder="Number"
-                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
+                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  outline-none"
                         />
                       </div>
                       <div className="space-y-1 text-sm">
@@ -234,7 +234,7 @@ const SpotDetails = () => {
                           name="message"
                           id=""
                           rows="2"
-                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
+                          className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  outline-none"
                         ></textarea>
                       </div>
 

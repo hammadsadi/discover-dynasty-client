@@ -92,7 +92,7 @@ const AddTouristsSpot = () => {
                   name="touristsSpotName"
                   id="touristsSpotName"
                   placeholder=" Tourists Spot Name"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  outline-none"
                 />
               </div>
               {/* Tourist Image */}
@@ -108,7 +108,7 @@ const AddTouristsSpot = () => {
                   name="photoURL"
                   id="photoURL"
                   placeholder="photo URL"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 outline-none"
                 />
               </div>
 
@@ -148,7 +148,7 @@ const AddTouristsSpot = () => {
                   name="location"
                   id="location"
                   placeholder="Location"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 outline-none"
                 />
               </div>
 
@@ -165,7 +165,7 @@ const AddTouristsSpot = () => {
                   name="averageCost"
                   id="averageCost"
                   placeholder="Average Cost"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 outline-none"
                 />
               </div>
               {/* Seasonality */}
@@ -201,7 +201,7 @@ const AddTouristsSpot = () => {
                   name="travelTime"
                   id="travelTime"
                   placeholder="Travel Time"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  outline-none"
                 />
               </div>
 
@@ -218,7 +218,7 @@ const AddTouristsSpot = () => {
                   name="totalVisitorsPerYear"
                   id="totalVisitorsPerYear"
                   placeholder="Total Visitors Per Year"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  outline-none"
                 />
               </div>
               {/* short description */}
@@ -233,7 +233,7 @@ const AddTouristsSpot = () => {
                   name="shortDescription"
                   id=""
                   rows="2"
-                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 outline-none"
                   placeholder="Short Description"
                 ></textarea>
               </div>
