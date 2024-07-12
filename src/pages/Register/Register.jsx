@@ -1,19 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { Fade } from "react-awesome-reveal";
+import { uploadImageToCloudinary } from "../../utils/helper";
+import { ImSpinner10 } from "react-icons/im";
 
 const Register = () => {
   const { registerUser } = useContext(AuthContext);
+  const [uploaderSpin, setUploaderSpin] = useState(false);
   const navigate = useNavigate();
-  const handleSubmitCreateAccountForm = (e) => {
+  const handleSubmitCreateAccountForm = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
-    const photoURL = form.photoURL.value;
+    const photoURL = form.photoURL.files[0];
     const password = form.password.value;
     let user = { name, email, password, photoURL };
     // Al Field Validation
@@ -33,24 +36,37 @@ const Register = () => {
       return toast.error("Must have a Lowercase letter in the password");
     }
 
-    // Create User
-    registerUser(email, password)
-      .then((res) => {
-        toast.success("User Create Successfully");
-        console.log(res.user);
-        // Update User Profile
-        updateProfile(res.user, {
-          displayName: name,
-          photoURL: photoURL,
+    try {
+      setUploaderSpin(true);
+      const imgUpload = await uploadImageToCloudinary(photoURL);
+      // Create User
+      registerUser(email, password)
+        .then((res) => {
+          toast.success("User Create Successfully");
+          console.log(res.user);
+          // Update User Profile
+          updateProfile(res.user, {
+            displayName: name,
+            photoURL: imgUpload?.data?.secure_url,
+          })
+            .then((rs) => {
+              setUploaderSpin(false);
+            })
+            .catch((err) => {
+              setUploaderSpin(false);
+            });
+          e.target.reset();
+          navigate("/login");
+          setUploaderSpin(false);
         })
-          .then((rs) => {})
-          .catch((err) => {});
-        e.target.reset();
-        navigate("/login");
-      })
-      .catch((err) => {
-        toast.error(err.message);
-      });
+        .catch((err) => {
+          toast.error(err.message);
+          setUploaderSpin(false);
+        });
+    } catch (error) {
+      console.log(error.message);
+      setUploaderSpin(false);
+    }
   };
   return (
     <Fade>
@@ -98,11 +114,11 @@ const Register = () => {
                 Photo URL
               </label>
               <input
-                type="text"
+                type="file"
                 name="photoURL"
                 id="photoURL"
                 placeholder="photo URL"
-                className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 outline-none"
+                className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 bg-[#121212] text-slate-300 outline-none"
               />
             </div>
             <div className="space-y-1 text-sm">
@@ -121,8 +137,19 @@ const Register = () => {
               />
             </div>
 
-            <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize">
+            {/* <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize">
               Register
+            </button> */}
+            <button
+              className={` w-full p-3 text-center rounded-sm dark:text-gray-50 bg-color-primary text-white font-medium capitalize flex justify-center items-center ${
+                uploaderSpin ? "bg-color-primary/30 cursor-not-allowed" : ""
+              }`}
+            >
+              {uploaderSpin ? (
+                <ImSpinner10 className="animate-spin" />
+              ) : (
+                <span> Sign Up</span>
+              )}
             </button>
           </form>
 
