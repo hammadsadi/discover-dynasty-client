@@ -33,7 +33,7 @@ Click here for the Live Site: [https://tourism-2d1ca.web.app](https://tourism-2d
 npm install
 ```
 
-3. Setup env Variable for Firebase Auth
+3. Setup env Variable for Firebase Auth And Cloudinary
 
 ```js
 //comment following commands
@@ -43,6 +43,8 @@ VITE_PROJECT_ID;
 VITE_STORAGE_BUCKET;
 VITE_MESSAGING_SENDER_ID;
 VITE_APPLE_ID;
+VITE_CLOUDINARY_CLOUD_NAME;
+VITE_CLOUDINARY_UPLOAD_PRESET;
 ```
 
 4. Run This Project following on this command
