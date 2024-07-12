@@ -29,19 +29,21 @@ const AllTouristsSpot = () => {
           <div className="space-y-1 text-sm">
             <label
               htmlFor="countryName"
-              className="block dark:text-gray-600 text-base text-color-sd font-medium"
+              className="block text-base text-slate-200 font-medium"
             >
               Sort By Cost
             </label>
             <select
-              className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
+              className="select w-full px-4 py-3 rounded-md border text-slate-300 bg-slate-900  focus:outline-color-primary "
               name="countryName"
               onChange={handleSort}
             >
               <option disabled selected>
                 Sort
               </option>
-              <option value="300">Average Cost Under 300$</option>
+              <option value="300" className="">
+                Average Cost Under 300$
+              </option>
               <option value="500">Average Cost Under 500$</option>
               <option value="1000">Average Cost Under 1000$</option>
               <option value="1500">Average Cost Under 1500$</option>

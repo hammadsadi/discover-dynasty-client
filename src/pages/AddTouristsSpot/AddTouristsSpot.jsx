@@ -74,8 +74,8 @@ const AddTouristsSpot = () => {
     <div>
       <Fade>
         <div className="flex justify-center items-center w-full my-4">
-          <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800 border">
-            <h1 className="text-2xl font-bold text-center">
+          <div className="w-full max-w-md p-8 space-y-3 rounded-xl  dark:text-gray-800 bg-slate-900/20">
+            <h1 className="text-2xl font-bold text-slate-200 text-center">
               Create Tourists Spot
             </h1>
             <form className="space-y-6" onSubmit={handleCreateTouristsSpot}>
@@ -83,7 +83,7 @@ const AddTouristsSpot = () => {
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="touristsSpotName"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Tourists Spot Name
                 </label>
@@ -92,14 +92,14 @@ const AddTouristsSpot = () => {
                   name="touristsSpotName"
                   id="touristsSpotName"
                   placeholder=" Tourists Spot Name"
-                  className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
                 />
               </div>
               {/* Tourist Image */}
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="photoURL"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Photo URL
                 </label>
@@ -108,7 +108,7 @@ const AddTouristsSpot = () => {
                   name="photoURL"
                   id="photoURL"
                   placeholder="photo URL"
-                  className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
                 />
               </div>
 
@@ -116,12 +116,12 @@ const AddTouristsSpot = () => {
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="countryName"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Country Name
                 </label>
                 <select
-                  className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
+                  className="select w-full px-4 py-3 rounded-md border  text-slate-300 bg-[#121212] focus:outline-color-primary "
                   name="countryName"
                 >
                   <option disabled selected>
@@ -139,7 +139,7 @@ const AddTouristsSpot = () => {
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="location"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Location
                 </label>
@@ -148,7 +148,7 @@ const AddTouristsSpot = () => {
                   name="location"
                   id="location"
                   placeholder="Location"
-                  className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
                 />
               </div>
 
@@ -156,7 +156,7 @@ const AddTouristsSpot = () => {
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="averageCost"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Average Cost
                 </label>
@@ -165,19 +165,19 @@ const AddTouristsSpot = () => {
                   name="averageCost"
                   id="averageCost"
                   placeholder="Average Cost"
-                  className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
                 />
               </div>
               {/* Seasonality */}
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="seasonality"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Seasonality
                 </label>
                 <select
-                  className="select w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary "
+                  className="select w-full px-4 py-3 rounded-md border text-slate-300 bg-[#121212]  focus:outline-color-primary"
                   name="seasonality"
                 >
                   <option disabled selected>
@@ -192,7 +192,7 @@ const AddTouristsSpot = () => {
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="travelTime"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Travel Time
                 </label>
@@ -201,7 +201,7 @@ const AddTouristsSpot = () => {
                   name="travelTime"
                   id="travelTime"
                   placeholder="Travel Time"
-                  className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
                 />
               </div>
 
@@ -209,7 +209,7 @@ const AddTouristsSpot = () => {
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="totalVisitorsPerYear"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Total Visitors Per Year
                 </label>
@@ -218,14 +218,14 @@ const AddTouristsSpot = () => {
                   name="totalVisitorsPerYear"
                   id="totalVisitorsPerYear"
                   placeholder="Total Visitors Per Year"
-                  className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300  focus:outline-none"
                 />
               </div>
               {/* short description */}
               <div className="space-y-1 text-sm">
                 <label
                   htmlFor="shortDescription"
-                  className="block dark:text-gray-600 text-base text-color-sd font-medium"
+                  className="block text-slate-300 text-base font-medium"
                 >
                   Short Description
                 </label>
@@ -233,7 +233,7 @@ const AddTouristsSpot = () => {
                   name="shortDescription"
                   id=""
                   rows="2"
-                  className="w-full px-4 py-3 rounded-md border text-gray-800 focus:outline-color-primary"
+                  className="w-full px-4 py-3 rounded-md border border-slate-900/20 focus:border-color-primary transition-all duration-300 text-slate-300 focus:outline-none"
                   placeholder="Short Description"
                 ></textarea>
               </div>
